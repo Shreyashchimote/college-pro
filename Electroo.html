@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electronics - Flipkart</title>
+<style>
+  /* Ensuring the body takes full height */
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f3f6;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Content to take up remaining space */
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+
+  /* Header Styling */
+  header {
+    background-color: #eae9f5;
+    color: rgb(47, 88, 185);
+    padding: 25px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Navigation Bar */
+  nav {
+    background-color: #1565c0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  nav a:hover {
+    text-decoration: dashed;
+    color: aqua;
+  }
+
+  /* Electronics Section */
+  .electronics-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .electronics-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    margin: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .electronics-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .electronics-item img {
+    max-width: 100%;
+    border-radius: 5px;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .electronics-item h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #1565c0;
+  }
+
+  .electronics-item p {
+    font-size: 1rem;
+    color: #333;
+  }
+
+  /* Footer Styling */
+  footer {
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Electronics Collection</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="Electroo.html">Electronics</a>
+    <a href="Grocery.html">Grocery</a>
+    <a href="about.html">About</a>
+    <a href="flipkart.html">Contact</a>
+</nav>
+
+<div class="content">
+  <section class="electronics-container">
+    <div class="electronics-item">
+      <img src="iphone16.jpg" alt="Smartphone">
+      <h3>Smartphone</h3>
+      <p>Starting From 15k</p>
+      <p>Latest high-performance smartphones with advanced features.</p>
+    </div>
+
+    <div class="electronics-item">
+      <img src="laptop.avif" alt="Laptop">
+      <h3>Laptop</h3>
+      <p>Starting From 35K</p>
+      <p>Powerful laptops for work, gaming, and personal use.</p>
+    </div>
+
+    <div class="electronics-item">
+      <img src="head_phone.webp" alt="Bluetooth Headphones">
+      <h3>Bluetooth Headphones</h3>
+      <p>Starting From 800</p>
+      <p>Wireless headphones with deep bass and crystal-clear sound.</p>
+    </div>
+
+    <div class="electronics-item">
+      <img src="tv.avif" alt="Television">
+      <h3>Television</h3>
+      <p>Starting From 40K</p>
+      <p>Smart TVs with 4K Ultra HD resolution and streaming features.</p>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p>&copy; 2025 Flipkart Electronics Page. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

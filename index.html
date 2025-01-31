@@ -29,12 +29,13 @@
     font-weight: bold;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
+
   header img {
-  max-height: 50px; /* Adjust the height as needed */
-  width: auto; /* Maintain aspect ratio */
-  display: block; /* Ensure proper alignment */
-  margin: 0 auto 10px auto; /* Center the image with bottom spacing */
- }
+    max-height: 50px;
+    width: auto;
+    display: block;
+    margin: 0 auto 10px auto;
+  }
 
   nav {
     background-color: #1565c0;
@@ -51,11 +52,45 @@
     margin: 0 15px;
     font-size: 1rem;
     font-weight: 600;
+    position: relative;
   }
 
   nav a:hover {
-    text-decoration:dashed;
-    color:aqua;
+    text-decoration: dashed;
+    color: aqua;
+  }
+
+  /* Help Dropdown Menu */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    border-radius: 5px;
+  }
+
+  .dropdown-content a {
+    color: #1565c0;
+    padding: 10px;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f3f6;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
   }
 
   .search-bar {
@@ -88,6 +123,7 @@
     background-color: #e68a00;
   }
 
+  /* Categories Section */
   .categories {
     margin: 20px;
     display: flex;
@@ -95,31 +131,28 @@
     text-align: center;
   }
 
+  .categories div {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
-.categories div {
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  flex: 1;
-  margin: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.categories div:hover {
-  transform: scale(1.1);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
-  background-color: #f0f0f0;
-  transition: 0.3s ease-in-out;
-}
-
+  .categories div:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    background-color: #f0f0f0;
+    transition: 0.3s ease-in-out;
+  }
 
   .categories img {
     max-width: 100%;
     border-radius: 5px;
     height: 250px;
   }
-  
 
   /* Sticky footer */
   footer {
@@ -129,47 +162,31 @@
     padding: 10px 0;
     width: 100%;
   }
-  .slider {
-  display: flex;
-  overflow: hidden;
-  width: 100%;
-  max-width: 900px;
-  margin: 20px auto;
-  position: relative;
-}
-
-.slide {
-  min-width: 100%;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slide img {
-  width: 90%;
-  border-radius: 5px;
-  height: 500px;
-}
-
-
-/* Responsive Slider */
-@media (max-width: 768px) {
-  .slider {
-    max-width: 100%;
-  }
-}
 
 </style>
 </head>
 <body>
+
 <header>
-  <img src="Flipkart-logo.png" alt="Category 1">
+  <img src="Flipkart-logo.png" alt="Flipkart Logo">
   Welcome To Flipkart...
 </header>
+
 <nav>
   <a href="index.html">Home</a>
   <a href="Electroo.html">Electronics</a>
   <a href="Grocery.html">Grocery</a>
   <a href="about.html">About</a>
-  <a href="flipkart.html">Help</a>
+
+  <div class="dropdown">
+    <a href="flipkart.html">more &#9662;</a>
+    <div class="dropdown-content">
+      <a href="utube.html">Advertise on Flipkart</a>
+      <a href="Gps.html">Location</a>
+      <a href="adver.html">Image</a>
+    </div>
+  </div>
+
   <div class="search-bar">
     <input type="text" placeholder="Search for products, brands, and more">
     <button>Search</button>
@@ -180,58 +197,25 @@
 <div class="content">
   <section class="categories">
     <div>
-      <img src="electronics.jpg" alt="Category 1">
+      <img src="electronics.jpg" alt="Electronics">
       <p>Electronics</p>
     </div>
     <div>
-      <img src="f_fashion.jpg" alt="Category 2">
+      <img src="f_fashion.jpg" alt="Fashion">
       <p>Fashion</p>
     </div>
     <div>
-      <img src="Flipkart-Home-appliances.jpg" alt="Category 3">
+      <img src="Flipkart-Home-appliances.jpg" alt="Home Appliances">
       <p>Home Appliances</p>
     </div>
   </section>
-    <section class="slider">
-      <div class="slide">
-        <img src="iphone16.jpg" alt="Featured Product 1">
-      </div>
-      <div class="slide">
-        <img src="Apple-M4.jpg" alt="Featured Product 2">
-      </div>
-      <div class="slide">
-        <img src="boat-airdopes.jpg" alt="Featured Product 3">
-      </div>
-   
-    
-  </section>
 </div>
-<script>
-  let index = 0;
-  function slideShow() {
-    const slides = document.querySelectorAll(".slide");
-    slides.forEach((slide, i) => {
-      slide.style.transform = `translateX(-${index * 100}%)`;
-    });
-    index = (index + 1) % slides.length;
-  }
-  setInterval(slideShow, 3000); // Change image every 3 seconds
-</script>
-<script>
-  const searchInput = document.querySelector(".search-bar input");
-  const suggestions = ["Laptop", "Mobile", "Shoes", "T-Shirts", "Watches"];
 
-  searchInput.addEventListener("input", function () {
-    let matches = suggestions.filter(item =>
-      item.toLowerCase().includes(searchInput.value.toLowerCase())
-    );
-    console.log("Suggestions: ", matches); // Later, add dropdown UI for better experience.
-  });
-</script>
 <footer>
   <p>&copy; 2025 Flipkart. All Rights Reserved.</p>
 </footer>
 
 </body>
 </html>
+
 

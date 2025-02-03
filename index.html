@@ -2,220 +2,107 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flipkart - Home</title>
+<meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+<title>Contact Us</title>
 <style>
-  /* Ensuring the body takes full height */
-  html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    background-color: #f1f3f6;
-    font-family: Arial, sans-serif;
-  }
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+background-color: #f9f9f9;
+}
+form {
+background: #ffffff;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+width: 100%;
+max-width: 400px;
+}
 
-  /* Ensuring content takes up remaining space */
-  .content {
-    flex: 1;
-  }
+h1 {
+margin-bottom: 20px;
+font-size: 24px;
+color: #333;
+}
+.form-group {
+margin-bottom: 15px;
+}
+label {
+display: block;
+margin-bottom: 5px;
+font-weight: bold;
+color: #555;
+}
+input, textarea {
+width: 100%;
+padding: 5px;
+border: 1px solid #ccc;
+border-radius: 4px;
+font-size: 14px;
+}
+input:focus, textarea:focus {
+border-color: #007BFF;
+outline: none;
+}
+button {
+width: 100%;
+padding: 10px;
+background-color: #007BFF;
+color: white;
+border: none;
+border-radius: 4px;
+font-size: 16px;
+cursor: pointer;
 
-  header {
-    background-color: #eae9f5;
-    color: rgb(47, 88, 185);
-    padding: 25px;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  header img {
-    max-height: 50px;
-    width: auto;
-    display: block;
-    margin: 0 auto 10px auto;
-  }
-
-  nav {
-    background-color: #1565c0;
-    padding: 0.5rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1rem;
-    font-weight: 600;
-    position: relative;
-  }
-
-  nav a:hover {
-    text-decoration: dashed;
-    color: aqua;
-  }
-
-  /* Help Dropdown Menu */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 180px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    border-radius: 5px;
-  }
-
-  .dropdown-content a {
-    color: #1565c0;
-    padding: 10px;
-    display: block;
-    text-align: left;
-    text-decoration: none;
-    font-size: 0.9rem;
-  }
-
-  .dropdown-content a:hover {
-    background-color: #f1f3f6;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  .search-bar {
-    flex: 1;
-    margin: 0 20px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .search-bar input {
-    width: 60%;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-  }
-
-  .search-bar button {
-    background-color: #ff9f00;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-
-  .search-bar button:hover {
-    background-color: #e68a00;
-  }
-
-  /* Categories Section */
-  .categories {
-    margin: 20px;
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-  }
-
-  .categories div {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    margin: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .categories div:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
-    background-color: #f0f0f0;
-    transition: 0.3s ease-in-out;
-  }
-
-  .categories img {
-    max-width: 100%;
-    border-radius: 5px;
-    height: 250px;
-  }
-
-  /* Sticky footer */
-  footer {
-    background-color: #333333;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-  }
-
+}
+button:hover {
+background-color: #0056b3;
+}
+.error {
+color: red;
+font-size: 12px;
+}
 </style>
 </head>
 <body>
+<form id="contactForm">
+<h1>Contact Form</h1>
+<div class="form-group">
+<label for="name">Name</label>
+<input type="text" id="name" name="name"
 
-<header>
-  <img src="Flipkart-logo.png" alt="Flipkart Logo">
-  Welcome To Flipkart...
-</header>
+placeholder="Enter your name" required>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="Electroo.html">Electronics</a>
-  <a href="Grocery.html">Grocery</a>
-  <a href="about.html">About</a>
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email" name="email"
 
-  <div class="dropdown">
-    <a>more &#9662;</a>
-    <div class="dropdown-content">
-      <a href="utube.html">Advertise on Flipkart</a>
-      <a href="Gps.html">Location</a>
-      <a href="adver.html">Image</a>
-    </div>
-  </div>
+placeholder="Enter your email" required>
 
-  <div class="search-bar">
-    <input type="text" placeholder="Search for products, brands, and more">
-    <button>Search</button>
-  </div>
-</nav>
+</div>
+<div class="form-group">
+<label for="phone">Phone Number</label>
+<input type="tel" id="phone" name="phone"
+placeholder="Enter your phone number" pattern="[0-9]{10}"
+title="Please enter a 10-digit phone number" required>
 
-<!-- Content Wrapper -->
-<div class="content">
-  <section class="categories">
-    <div>
-      <img src="electronics.jpg" alt="Electronics">
-      <p>Electronics</p>
-    </div>
-    <div>
-      <img src="f_fashion.jpg" alt="Fashion">
-      <p>Fashion</p>
-    </div>
-    <div>
-      <img src="Flipkart-Home-appliances.jpg" alt="Home Appliances">
-      <p>Home Appliances</p>
-    </div>
-  </section>
+</div>
+<div class="form-group">
+<label for="message">Message</label>
+<textarea id="message" name="message"
+
+placeholder="Enter your message" rows="5" required></textarea>
+
 </div>
 
-<footer>
-  <p>&copy; 2025 Flipkart. All Rights Reserved.</p>
-</footer>
-
+<button onclick="location.href='home.html'">Submit</button>
+</form>
 </body>
 </html>
-
-

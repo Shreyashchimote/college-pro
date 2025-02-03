@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flipkart - Most Searched Products</title>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f3f6;
+    font-family: Arial, sans-serif;
+  }
+  nav {
+    background-color: #1565c0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    position: relative;
+  }
+
+  nav a:hover {
+    text-decoration: dashed;
+    color: aqua;
+  }
+
+  /* Help Dropdown Menu */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    border-radius: 5px;
+  }
+
+  .dropdown-content a {
+    color: #1565c0;
+    padding: 10px;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f3f6;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+
+  header {
+    background-color: #eae9f5;
+    color: rgb(47, 88, 185);
+    padding: 25px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  header img {
+    max-height: 50px;
+    width: auto;
+    display: block;
+    margin: 0 auto 10px auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #1565c0;
+    color: white;
+    font-size: 1.2rem;
+  }
+
+  td img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  tr:hover {
+    background-color: #f1f3f6;
+  }
+
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="Flipkart-logo.png" alt="Flipkart Logo">
+  Most Searched Products
+</header>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="Electroo.html">Electronics</a>
+    <a href="Grocery.html">Grocery</a>
+    <a href="about.html">About</a>
+  
+    <div class="dropdown">
+      <a href="#">More &#9662;</a>
+      <div class="dropdown-content">
+        <a href="advertise.html">Advertise on Flipkart</a>
+        <a href="location.html">Location</a>
+        <a href="image.html">Image</a>
+        <a href="flipkarttable.html">Most Search</a>
+      </div>
+    </div>
+  
+    
+  </nav>
+
+<div class="content">
+  <table>
+    <tr>
+      <th>Product Name</th>
+      <th>Price(INR)</th>
+      <th>Rating</th>
+      <th>Image</th>
+    </tr>
+    <tr>
+      <td>iPhone 16 Pro</td>
+      <td>1,19,999</td>
+      <td>4.5⭐</td>
+      <td><img src="https://www.designinfo.in/wp-content/uploads/2024/09/Apple-iPhone-16-Pro-128GB-Black-Titanium-8-485x485-optimized.webp" alt="iPhone 14 Pro"></td>
+    </tr>
+    <tr>
+      <td>Samsung Galaxy S23 Ultra Edge</td>
+      <td>1,05,999</td>
+      <td>4.8⭐</td>
+      <td><img src="https://m.media-amazon.com/images/I/71OXmy3NMCL._SX679_.jpg" alt="Samsung Galaxy S23"></td>
+    </tr>
+    <tr>
+      <td>MacBook Air M2</td>
+      <td>67,990</td>
+      <td>3.9⭐</td>
+      <td><img src="https://akm-img-a-in.tosshub.com/businesstoday/images/story/202306/untitled_design_-_2023-06-06t184728-sixteen_nine.jpg?size=948:533" alt="MacBook Air M2"></td>
+    </tr>
+    <tr>
+      <td>Sony WH-1000XM5</td>
+      <td>31,775</td>
+      <td>4.0⭐</td>
+      <td><img src="https://shopatsc.com/cdn/shop/files/1_173548ff-3435-4bb6-89ba-bb29ba62a92d.jpg?v=1727158585" alt="Sony WH-1000XM5"></td>
+    </tr>
+    <tr>
+      <td>Apple Watch Series 8</td>
+      <td>20,799</td>
+      <td>4.5⭐</td>
+      <td><img src="https://www.apple.com/newsroom/images/product/watch/standard/Apple-Watch-S8-stainless-steel-silver-220907_inline.jpg.large.jpg" alt="Apple Watch Series 8"></td>
+    </tr>
+  </table>
+</div>
+
+<footer>
+  <p>&copy; 2025 Flipkart. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

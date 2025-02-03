@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flipkart - Home</title>
+<style>
+  /* Ensuring the body takes full height */
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f3f6;
+    font-family: Arial, sans-serif;
+  }
+
+  .content {
+    flex: 1;
+  }
+
+  header {
+    background-color: #eae9f5;
+    color: rgb(47, 88, 185);
+    padding: 25px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  header img {
+    max-height: 50px;
+    width: auto;
+    display: block;
+    margin: 0 auto 10px auto;
+  }
+
+  nav {
+    background-color: #1565c0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    position: relative;
+  }
+
+  nav a:hover {
+    text-decoration: dashed;
+    color: aqua;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    border-radius: 5px;
+  }
+
+  .dropdown-content a {
+    color: #1565c0;
+    padding: 10px;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f3f6;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .search-bar {
+    flex: 1;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .search-bar input {
+    width: 60%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  .search-bar button {
+    background-color: #ff9f00;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .search-bar button:hover {
+    background-color: #e68a00;
+  }
+
+  .categories {
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .categories div {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .categories div:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    background-color: #f0f0f0;
+    transition: 0.3s ease-in-out;
+  }
+
+  .categories img {
+    max-width: 100%;
+    border-radius: 5px;
+    height: 250px;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  footer {
+    background-color: #333333;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="Flipkart-logo.png" alt="Flipkart Logo">
+  Welcome To Flipkart...
+</header>
+
+<nav>
+  <a href="home.html">Home</a>
+  <a href="Electroo.html">Electronics</a>
+  <a href="Grocery.html">Grocery</a>
+  <a href="about.html">About</a>
+</nav>
+
+<div class="content">
+  <section class="gallery">
+    <img src="https://www.designinfo.in/wp-content/uploads/2024/09/Apple-iPhone-16-Pro-128GB-Black-Titanium-8-485x485-optimized.webp" alt="Image 1">
+    <img src="image2.jpg" alt="Image 2">
+    <img src="image3.jpg" alt="Image 3">
+    <img src="image4.jpg" alt="Image 4">
+    <img src="image5.jpg" alt="Image 5">
+    <img src="image6.jpg" alt="Image 6">
+  </section>
+</div>
+
+<footer>
+  <p>&copy; 2025 Flipkart. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
+

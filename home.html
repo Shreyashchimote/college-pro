@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flipkart - Home</title>
+<style>
+  /* Ensuring the body takes full height */
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f3f6;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Ensuring content takes up remaining space */
+  .content {
+    flex: 1;
+  }
+
+  header {
+    background-color: #eae9f5;
+    color: rgb(47, 88, 185);
+    padding: 25px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  header img {
+    max-height: 50px;
+    width: auto;
+    display: block;
+    margin: 0 auto 10px auto;
+  }
+
+  nav {
+    background-color: #1565c0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    position: relative;
+  }
+
+  nav a:hover {
+    text-decoration: dashed;
+    color: aqua;
+  }
+
+  /* Help Dropdown Menu */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    border-radius: 5px;
+  }
+
+  .dropdown-content a {
+    color: #1565c0;
+    padding: 10px;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f3f6;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .search-bar {
+    flex: 1;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .search-bar input {
+    width: 60%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  .search-bar button {
+    background-color: #ff9f00;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .search-bar button:hover {
+    background-color: #e68a00;
+  }
+
+  /* Categories Section */
+  .categories {
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .categories div {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .categories div:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    background-color: #f0f0f0;
+    transition: 0.3s ease-in-out;
+  }
+
+  .categories img {
+    max-width: 100%;
+    border-radius: 5px;
+    height: 250px;
+  }
+
+
+  /* Sticky footer */
+  footer {
+    background-color: #333333;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <img src="Flipkart-logo.png" alt="Flipkart Logo">
+  Welcome To Flipkart...
+</header>
+
+<nav>
+  <a href="home.html">Home</a>
+  <a href="Electroo.html">Electronics</a>
+  <a href="Grocery.html">Grocery</a>
+  <a href="about.html">About</a>
+
+  <div class="dropdown">
+    <a href="#">Help &#9662;</a>
+    <div class="dropdown-content">
+      <a href="advertise.html">Advertise on Flipkart</a>
+      <a href="location.html">Location</a>
+      <a href="image.html">Image</a>
+      <a href="flipkarttable.html">Most Search</a>
+      <a href="index.html">LogOut</a>
+    </div>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search for products, brands, and more">
+    <button>Search</button>
+  </div>
+</nav>
+
+
+
+<!-- Content Wrapper -->
+<div class="content">
+  <section class="categories">
+    <div>
+      <img src="electronics.jpg" alt="Electronics">
+      <p>Electronics</p>
+    </div>
+    <div>
+      <img src="f_fashion.jpg" alt="Fashion">
+      <p>Fashion</p>
+    </div>
+    <div>
+      <img src="Flipkart-Home-appliances.jpg" alt="Home Appliances">
+      <p>Home Appliances</p>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p>&copy; 2025 Flipkart. All Rights Reserved.</p>
+</footer>
+
+
+</body>
+</html>
+
+

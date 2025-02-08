@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grocery - Flipkart</title>
+<style>
+  /* Reset and Full Height */
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f3f6;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Content Layout */
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+
+  /* Header Styling */
+  header {
+    background-color: #eae9f5;
+    color: rgb(47, 88, 185);
+    padding: 25px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Responsive Navigation Bar */
+  nav {
+    background-color: #1565c0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  nav a:hover {
+    text-decoration: dashed;
+    color: aqua;
+  }
+
+  /* Grocery Section with Flexbox */
+  .grocery-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+    margin-top: 20px;
+    gap: 20px; /* Adds space between items */
+  }
+
+  .grocery-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .grocery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .grocery-item img {
+    max-width: 100%;
+    border-radius: 5px;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .grocery-item h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #1565c0;
+  }
+
+  .grocery-item p {
+    font-size: 1rem;
+    color: #333;
+  }
+
+  /* Responsive Footer */
+  footer {
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Grocery Collection</h1>
+</header>
+
+<nav>
+    <a href="home.html">Home</a>
+    <a href="Electroo.html">Electronics</a>
+    <a href="Grocery.html">Grocery</a>
+    <a href="about.html">About</a>
+    <a href="flipkart.html">Contact</a>
+</nav>
+
+<div class="content">
+  <section class="grocery-container">
+    <div class="grocery-item">
+      <img src="wh.png" alt="Wheat">
+      <h3>Wheat</h3>
+      <p>High-quality wheat for making fresh rotis and bread.</p>
+    </div>
+
+    <div class="grocery-item">
+      <img src="rice.jpg" alt="Rice">
+      <h3>Rice</h3>
+      <p>Premium basmati and non-basmati rice varieties.</p>
+    </div>
+
+    <div class="grocery-item">
+      <img src="oil.jpg" alt="Oil">
+      <h3>Cooking Oil</h3>
+      <p>Healthy and pure edible oils for everyday cooking.</p>
+    </div>
+
+    <div class="grocery-item">
+      <img src="grain.png" alt="Grains">
+      <h3>Grains</h3>
+      <p>Nutritious grains for a balanced diet.</p>
+    </div>
+
+    <div class="grocery-item">
+      <img src="flour.jpg" alt="Flour">
+      <h3>Flour</h3>
+      <p>Freshly milled flour for all your baking needs.</p>
+    </div>
+
+    <div class="grocery-item">
+      <img src="shampoo.jpg" alt="Shampoo">
+      <h3>Shampoo</h3>
+      <p>Best quality shampoos for hair nourishment and care.</p>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p>&copy; 2025 Flipkart Grocery Page. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

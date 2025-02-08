@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grocery - Flipkart</title>
 <style>
-  /* Ensuring the body takes full height */
+  /* Reset and Full Height */
   html, body {
     height: 100%;
     margin: 0;
@@ -15,7 +15,7 @@
     font-family: Arial, sans-serif;
   }
 
-  /* Content to take up remaining space */
+  /* Content Layout */
   .content {
     flex: 1;
     padding: 20px;
@@ -32,20 +32,20 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  /* Navigation Bar */
+  /* Responsive Navigation Bar */
   nav {
     background-color: #1565c0;
     padding: 0.5rem 1rem;
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping on small screens */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 10px 15px;
     font-size: 1.2rem;
     font-weight: 600;
   }
@@ -55,12 +55,14 @@
     color: aqua;
   }
 
-  /* Grocery Section */
+  /* Grocery Section with Flexbox */
   .grocery-container {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
     margin-top: 20px;
+    gap: 20px; /* Adds space between items */
   }
 
   .grocery-item {
@@ -70,7 +72,6 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 250px;
     text-align: center;
-    margin: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
@@ -97,7 +98,7 @@
     color: #333;
   }
 
-  /* Footer Styling */
+  /* Responsive Footer */
   footer {
     background-color: #333333;
     color: white;

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Stopwatch & Alarm</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #8e44ad, #c0392b);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      width: 350px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .clock {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #777;
+    }
+
+    .time-display {
+      font-size: 48px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .buttons button {
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .buttons button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .buttons .start {
+      background-color: #2ecc71;
+    }
+
+    .buttons .stop {
+      background-color: #e74c3c;
+    }
+
+    .buttons .reset {
+      background-color: #f1c40f;
+    }
+
+    .alarm-section {
+      margin-top: 20px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      padding: 15px;
+    }
+
+    .alarm-section input {
+      width: 60%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .alarm-buttons button {
+      padding: 8px 16px;
+      margin: 5px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .set-alarm {
+      background-color: #e67e22;
+      color: #fff;
+    }
+
+    .clear-alarm {
+      background-color: #95a5a6;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="clock" id="clock"></div>
+    <div class="time-display" id="stopwatch">00:00:00</div>
+    <div class="buttons">
+      <button class="start" onclick="startStopwatch()">Start</button>
+      <button class="stop" onclick="stopStopwatch()">Stop</button>
+      <button class="reset" onclick="resetStopwatch()">Reset</button>
+    </div>
+    <div class="alarm-section">
+      <h4>Set Alarm (hh:mm:ss)</h4>
+      <input type="text" id="alarmTime" placeholder="10:00:00">
+      <div class="alarm-buttons">
+        <button class="set-alarm" onclick="setAlarm()">Set Alarm</button>
+        <button class="clear-alarm" onclick="clearAlarm()">Clear Alarm</button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="alarmSound" src="https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg" preload="auto"></audio>
+
+  <script>
+    // Clock
+    function updateClock() {
+      const clockElement = document.getElementById('clock');
+      const now = new Date();
+      clockElement.innerHTML = now.toLocaleString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Stopwatch
+    let stopwatchInterval;
+    let stopwatchTime = 0;
+
+    function updateStopwatch() {
+      stopwatchTime++;
+      const hours = Math.floor(stopwatchTime / 3600);
+      const minutes = Math.floor((stopwatchTime % 3600) / 60);
+      const seconds = stopwatchTime % 60;
+
+      document.getElementById('stopwatch').innerText =
+        `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+    }
+
+    function pad(number) {
+      return number.toString().padStart(2, '0');
+    }
+
+    function startStopwatch() {
+      if (!stopwatchInterval) {
+        stopwatchInterval = setInterval(updateStopwatch, 1000);
+      }
+    }
+
+    function stopStopwatch() {
+      clearInterval(stopwatchInterval);
+      stopwatchInterval = null;
+    }
+
+    function resetStopwatch() {
+      stopStopwatch();
+      stopwatchTime = 0;
+      document.getElementById('stopwatch').innerText = '00:00:00';
+    }
+
+    // Alarm
+    let alarmTime = null;
+    let alarmTimeout = null;
+
+    function setAlarm() {
+      const inputTime = document.getElementById('alarmTime').value.trim();
+      if (!/^\d{1,2}:\d{2}:\d{2}$/.test(inputTime)) {
+        alert('Please enter time in hh:mm:ss format.');
+        return;
+      }
+
+      alarmTime = inputTime;
+      checkAlarm();
+    }
+
+    function clearAlarm() {
+      alarmTime = null;
+      clearTimeout(alarmTimeout);
+      document.getElementById('alarmSound').pause();
+      document.getElementById('alarmSound').currentTime = 0;
+      alert('Alarm cleared!');
+    }
+
+    function checkAlarm() {
+      if (!alarmTime) return;
+
+      const now = new Date();
+      const currentTime = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+
+      if (currentTime === alarmTime) {
+        triggerAlarm();
+      }
+
+      alarmTimeout = setTimeout(checkAlarm, 1000);
+    }
+
+    function triggerAlarm() {
+      const sound = document.getElementById('alarmSound');
+      sound.play();
+      alert('⏰ Alarm ringing!');
+    }
+  </script>
+</body>
+
+</html>

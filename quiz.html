@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>General Knowledge Quiz</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(45deg, #a4a6b0, #5d88ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* You had some stray text here: Name:Ayush tiwari Roll No.: 66 Section:B. Removed it. */
+
+      height: 100vh;
+    }
+
+    .quiz-container {
+      background-color: rgb(202, 197, 219);
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    #timer {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #976c71;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #navigation button {
+      width: 48%;
+      display: inline-block;
+      margin: 0 1%;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+      font-size: 1rem;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="quiz-container">
+    <h1>General Knowledge Quiz</h1>
+    <div id="timer"></div>
+    <div id="quiz"></div>
+    <div id="navigation">
+      <button id="prev" onclick="navigateQuestion('prev')" disabled>Previous</button>
+      <button id="next" onclick="navigateQuestion('next')">Next</button>
+    </div>
+    <button id="submit" onclick="submitQuiz()">Submit Quiz</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "What is the capital of India?",
+        options: ["Mumbai", "New Delhi", "Kolkata", "Chennai"],
+        answer: "New Delhi"
+      },
+      {
+        question: "Who is known as the Father of the Nation in India?",
+        options: ["Jawaharlal Nehru", "Subhas Chandra Bose", "Mahatma Gandhi", "Sardar Patel"],
+        answer: "Mahatma Gandhi"
+      },
+      {
+        question: "Which Indian festival is known as the festival of lights?",
+        options: ["Holi", "Diwali", "Eid", "Christmas"],
+        answer: "Diwali"
+      },
+      {
+        question: "What is the national animal of India?",
+        options: ["Elephant", "Lion", "Tiger", "Peacock"],
+        answer: "Tiger"
+      },
+      {
+        question: "Which river is considered the holiest in India?",
+        options: ["Yamuna", "Godavari", "Ganges", "Narmada"],
+        answer: "Ganges"
+      },
+      {
+        question: "Who was the first Prime Minister of independent India?",
+        options: ["Sardar Patel", "Jawaharlal Nehru", "Rajendra Prasad", "Lal Bahadur Shastri"],
+        answer: "Jawaharlal Nehru"
+      },
+      {
+        question: "In which year did India gain independence from British rule?",
+        options: ["1942", "1945", "1947", "1950"],
+        answer: "1947"
+      },
+      {
+        question: "What is the national sport of India?",
+        options: ["Cricket", "Hockey", "Kabaddi", "Football"],
+        answer: "Hockey"
+      },
+      {
+        question: "Who wrote the Indian national anthem 'Jana Gana Mana'?",
+        options: ["Bankim Chandra Chattopadhyay", "Rabindranath Tagore", "Sarojini Naidu", "Subramania Bharati"],
+        answer: "Rabindranath Tagore"
+      },
+      {
+        question: "Which Indian state is known as the 'Land of Five Rivers'?",
+        options: ["Uttar Pradesh", "Haryana", "Punjab", "Rajasthan"],
+        answer: "Punjab"
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let timer;
+    let timeLeft = 300;
+
+    function renderQuestion(index) {
+      const questionElement = document.getElementById("quiz");
+      const question = questions[index];
+      let optionsHtml = "";
+
+      question.options.forEach(option => {
+        // Check if option is already selected
+        const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+        const isChecked = selectedOption && selectedOption.value === option;
+
+        optionsHtml += `
+          <label>
+            <input type="radio" name="question${index}" value="${option}" ${isChecked ? 'checked' : ''}> ${option}
+          </label>`;
+      });
+
+      questionElement.innerHTML = `
+        <div class="question">
+          <p>${question.question}</p>
+          ${optionsHtml}
+        </div>`;
+    }
+
+    function navigateQuestion(direction) {
+      saveSelectedAnswer();
+
+      if (direction === "next" && currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+      } else if (direction === "prev" && currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+      }
+
+      renderQuestion(currentQuestionIndex);
+      updateNavigationButtons();
+    }
+
+    // Store selected answers in this object
+    const selectedAnswers = {};
+
+    function saveSelectedAnswer() {
+      const selectedOption = document.querySelector(`input[name="question${currentQuestionIndex}"]:checked`);
+      if (selectedOption) {
+        selectedAnswers[currentQuestionIndex] = selectedOption.value;
+      }
+    }
+
+    function updateNavigationButtons() {
+      document.getElementById("prev").disabled = currentQuestionIndex === 0;
+      document.getElementById("next").disabled = currentQuestionIndex === questions.length - 1;
+    }
+
+    function startTimer() {
+      timer = setInterval(() => {
+        if (timeLeft > 0) {
+          timeLeft--;
+          document.getElementById("timer").innerHTML =
+            `Time Left: ${Math.floor(timeLeft / 60)}:${timeLeft % 60 < 10 ? "0" : ""}${timeLeft % 60}`;
+        } else {
+          clearInterval(timer);
+          submitQuiz();
+        }
+      }, 1000);
+    }
+
+    function submitQuiz() {
+      clearInterval(timer);
+
+      // Save current question answer if user directly submits
+      saveSelectedAnswer();
+
+      let totalScore = 0;
+
+      questions.forEach((question, index) => {
+        if (selectedAnswers[index] === question.answer) {
+          totalScore++;
+        }
+      });
+
+      document.getElementById("result").innerHTML =
+        `<p>You scored ${totalScore} out of ${questions.length}!</p>`;
+    }
+
+    function initializeQuiz() {
+      renderQuestion(currentQuestionIndex);
+      updateNavigationButtons();
+      startTimer();
+    }
+
+    initializeQuiz();
+  </script>
+</body>
+
+</html>
